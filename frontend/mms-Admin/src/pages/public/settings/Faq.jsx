@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@material-ui/core";
 import { Box, Button, Stack, Typography } from "@mui/material";
@@ -127,6 +128,17 @@ function Faq() {
             );
           })}
         </Stack>
+=======
+import React from "react";
+import { Card, CardContent } from "@material-ui/core";
+
+function Faq() {
+  return (
+    <Card>
+      <CardContent>
+        {/* Faq settings form goes here */}
+        Faq
+>>>>>>> bc9b169a (Creted the repot, programs components)
       </CardContent>
     </Card>
   );

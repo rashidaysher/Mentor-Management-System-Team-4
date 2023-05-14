@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { Stack, Card } from "@mui/material";
 import ArchiveInfo from "../../../components/ArchiveInfo";
 import {
@@ -52,6 +53,17 @@ function Archive() {
           </Stack>
         </Stack>
       </Stack>
+=======
+import { Card, CardContent } from "@material-ui/core";
+
+function Archive() {
+  return (
+    <Card>
+      <CardContent>
+        {/* Notifications settings form goes here */}
+        Archive
+      </CardContent>
+>>>>>>> bc9b169a (Creted the repot, programs components)
     </Card>
   );
 }

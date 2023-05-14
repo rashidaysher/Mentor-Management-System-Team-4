@@ -10,12 +10,15 @@ import Support from "./Support";
 import PropTypes from "prop-types";
 import { usePalette } from "../../../theme/theme";
 import Faq from "./Faq";
+<<<<<<< HEAD
 import Pagination from "../../../components/Pagination";
 import ArchiveSearchInput from "../../../components/ArchiveSearchInput";
 import { archiveData } from "../../../data/archiveData";
 import { useDispatch } from "react-redux";
 import { ITEMS_TO_DISPLAY } from "../../../redux/PaletteReducer";
 import { useEffect } from "react";
+=======
+>>>>>>> bc9b169a (Creted the repot, programs components)
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,6 +62,7 @@ function Settings() {
     setActiveTab(newValue);
   };
 
+<<<<<<< HEAD
   //This is the archive data from the database
   const data = archiveData;
   const dispatch = useDispatch();
@@ -67,6 +71,8 @@ function Settings() {
     dispatch(ITEMS_TO_DISPLAY(data));
   }, [data, dispatch]);
 
+=======
+>>>>>>> bc9b169a (Creted the repot, programs components)
   return (
     <Stack direction="column">
       <Stack
@@ -90,6 +96,7 @@ function Settings() {
         >
           Settings
         </Typography>
+<<<<<<< HEAD
         {activeTab === 4 ? (
           <Stack direction={"row"} alignItems={"center"} gap={4}>
             {/* Search based on the filtered items from the archive data */}
@@ -100,6 +107,9 @@ function Settings() {
         ) : (
           <></>
         )}
+=======
+        <div></div>
+>>>>>>> bc9b169a (Creted the repot, programs components)
       </Stack>
       <Box className={classes.root}>
         <Tabs

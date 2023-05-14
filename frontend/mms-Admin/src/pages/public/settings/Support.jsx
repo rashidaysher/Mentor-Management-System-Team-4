@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+import React from "react";
+>>>>>>> bc9b169a (Creted the repot, programs components)
 import { Card, CardContent } from "@material-ui/core";
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { Formik, useFormik } from "formik";
 import { ImAttachment } from "react-icons/im";
 import { BsChatText } from "react-icons/bs";
 import * as Yup from "yup";
+<<<<<<< HEAD
 import LiveChat from "../../../components/LiveChat";
+=======
+>>>>>>> bc9b169a (Creted the repot, programs components)
 
 const supportSchema = Yup.object().shape({
   name: Yup.string().required("Please enter your name"),
@@ -22,6 +29,7 @@ const initialValues = {
   title: "",
   message: "",
 };
+<<<<<<< HEAD
 
 function Support() {
   const [isLiveChatOpen, setIsLiveChatOpen] = useState(false);
@@ -33,11 +41,24 @@ function Support() {
     setIsLiveChatOpen(true);
   };
 
+=======
+function Support() {
+>>>>>>> bc9b169a (Creted the repot, programs components)
   const onSubmit = (values, action) => {
     console.log(values);
     action.resetForm();
   };
+<<<<<<< HEAD
   const { errors, touched, values, handleChange, handleSubmit } = useFormik({
+=======
+  const {
+    errors,
+    touched,
+    values,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+>>>>>>> bc9b169a (Creted the repot, programs components)
     initialValues,
     validationSchema: supportSchema,
     onSubmit,
@@ -45,7 +66,11 @@ function Support() {
   });
 
   return (
+<<<<<<< HEAD
     <Stack direction={"column"} spacing={10} width={"100%"} position="relative">
+=======
+    <Stack direction={"column"} spacing={10} width={"100%"}>
+>>>>>>> bc9b169a (Creted the repot, programs components)
       <Card>
         <CardContent>
           {/* Notifications settings form goes here */}
@@ -129,8 +154,12 @@ function Support() {
 
       <Stack direction={"row"} justifyContent={"space-between"} width="100%">
         <div></div>
+<<<<<<< HEAD
         <Button
           variant="text"
+=======
+        <Box
+>>>>>>> bc9b169a (Creted the repot, programs components)
           sx={{
             backgroundColor: "#E6FDFE",
             borderRadius: "40px",
@@ -141,6 +170,7 @@ function Support() {
             height: "66px",
             cursor: "pointer",
           }}
+<<<<<<< HEAD
           onClick={handleLiveChatOpen}
         >
           <BsChatText size={24} />
@@ -149,6 +179,12 @@ function Support() {
       {isLiveChatOpen && (
         <LiveChat setIsOpen={setIsLiveChatOpen} setMessage={setMessage} />
       )}
+=======
+        >
+          <BsChatText size={24} />
+        </Box>
+      </Stack>
+>>>>>>> bc9b169a (Creted the repot, programs components)
     </Stack>
   );
 }
