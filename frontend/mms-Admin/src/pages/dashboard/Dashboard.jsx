@@ -5,7 +5,9 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { HiLogout } from "react-icons/hi";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import ArticleIcon from "@mui/icons-material/Article";
 import { Grid } from "@mui/material";
+import ProgramList from "./Programs/ProgramList";
 
 import {
   Avatar,
@@ -24,7 +26,10 @@ import CardTop from "./CardTop";
 import { usePalette } from "../../theme/theme";
 import { MdPallet } from "react-icons/md";
 import { border, display } from "@mui/system";
-import Program from "./Programs/Program";
+// import Program from "./Programs/ProgramItem";
+// import Report from "./Reports/Report";
+import ReportList from "./Reports/ReportList";
+import TaskList from "./Tasks/TaskList";
 
 function Dashboard() {
   const [week, setWeek] = useState("");
@@ -60,12 +65,14 @@ function Dashboard() {
     },
   ];
 
+  // REport
+
   const handleChange = (event) => {
     setWeek(event.target.value);
   };
 
   return (
-    <Stack direction={"column"} width={"100%"} spacing={3} sx={{ pt: 2 }}>
+    <Stack>
       <Stack direction={"row"} widht={"100%"} justifyContent={"space-between"}>
         <Typography
           variant="h4"
@@ -96,183 +103,96 @@ function Dashboard() {
           </Select>
         </FormControl>
       </Stack>
-      <Grid>
-        <Grid container spacing="2" columns="4">
-          <Grid item xs="1">
-            <Box
-              sx={{
-                backgroundColor: palette.primary.main,
-                // width: "194px",
-                borderRadius: "7px",
-                py: 2,
-                px: 6,
-                position: "relative",
-              }}
-            >
-              <Stack>
-                <Stack
-                  direction={"row"}
-                  spacing={2}
-                  textAlign={"start"}
-                  alignItems={"center"}
-                >
-                  <Typography
-                    sx={{
-                      fontFamily: "Mukta",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      fontSize: "64px",
-                      color: "#F7FEFF",
-                    }}
-                  >
-                    6
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontFamily: "Mukta",
-                      fontStyle: "normal",
-                      fontWeight: 600,
-                      fontSize: "20px",
-                      color: "#F7FEFF",
-                      width: "84px",
-                    }}
-                  >
-                    Active Program
-                  </Typography>
-                  <Button
-                    variant="contained"
-                    sx={{
-                      widht: "55px",
-                      height: "24px",
-                      backgroundColor: "#FFFFFF",
-                      border: "1px solid #058B94",
-                      alignItems: "center",
-                      textAlign: "center",
-                      position: "absolute",
-                      right: "12px",
-                      top: "12px",
-                      color: "#035D63",
-                    }}
-                  >
-                    {" "}
-                    View
-                  </Button>
-                </Stack>
-              </Stack>
-            </Box>
-          </Grid>
-          <Grid
-            item
-            xs=""
-            sx={{ ml: 2, display: "flex", alignItems: "center" }}
+      <Grid container columns="5" spacing={2} sx={{ mr: 4, ml: 2 }}>
+        <Grid item xs="5" md="1">
+          <Box
+            sx={{
+              backgroundColor: palette.primary.main,
+
+              borderRadius: "7px",
+              py: 2,
+              px: 2,
+            }}
           >
-            <Grid container columns="4" spacing="22">
-              {cardContents.map((cardContent) => {
-                return (
-                  <Grid item xs="1">
-                    <CardTop
-                      key={cardContent.id}
-                      toptext={cardContent.toptext}
-                      bottomtext={cardContent.bottomtext}
-                      increment={cardContent.increment}
-                      icon={cardContent.icon}
-                    />
-                  </Grid>
-                );
-              })}
-            </Grid>
+            <Stack>
+              <Stack
+                direction={"row"}
+                spacing={2}
+                textAlign={"start"}
+                alignItems={"center"}
+              >
+                <Typography
+                  sx={{
+                    fontFamily: "Mukta",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    fontSize: "64px",
+                    color: "#F7FEFF",
+                  }}
+                >
+                  6
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Mukta",
+                    fontStyle: "normal",
+                    fontWeight: 600,
+                    fontSize: "20px",
+                    color: "#F7FEFF",
+                    width: "84px",
+                  }}
+                >
+                  Active Program
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{
+                    widht: "55px",
+                    height: "24px",
+                    backgroundColor: "#FFFFFF",
+                    border: "1px solid #058B94",
+                    alignItems: "center",
+                    textAlign: "center",
+                    position: "absolute",
+                    right: "12px",
+                    top: "12px",
+                    color: "#035D63",
+                  }}
+                >
+                  {" "}
+                  View
+                </Button>
+              </Stack>
+            </Stack>
+          </Box>
+        </Grid>
+        <Grid item xs="5" md="4" sx={{ display: "flex", alignItems: "center" }}>
+          <Grid container columns="4" justifyContent="space-evenly" spacing={1}>
+            {cardContents.map((cardContent) => {
+              return (
+                <Grid item sx={{minWidth:"200px" }}>
+                  <CardTop
+                    key={cardContent.id}
+                    toptext={cardContent.toptext}
+                    bottomtext={cardContent.bottomtext}
+                    increment={cardContent.increment}
+                    icon={cardContent.icon}
+                  />
+                </Grid>
+              );
+            })}
           </Grid>
         </Grid>
       </Grid>
 
-      <Stack backgroundColor="#F7FEFF" sx={{ p: 4 }}>
-        <Stack direction="row" justifyContent="space-between">
-          <Typography>Programs overview</Typography>
-          <Button>
-            {" "}
-            <Box>6 Active</Box>
-          </Button>
-          
-        </Stack>
-        <Grid item xs="" sx={{ ml: 2, display: "flex", alignItems: "center" }}>
-          <Grid container columns="4" spacing="22">
-            <Grid
-              item
-              xs="1"
-              sx={{
-                fontFamily: "Mukta",
-                fontStyle: "normal",
-                fontWeight: 600,
-                fontSize: "20px",
-                color: "#F7FEFF",
-                width: "84px",
-              }}
-            >
-              <Program />
-            </Grid>
+      {/* 
+    programs Section program Sections Program Sections Program Sections Program  */}
+      <ProgramList />
 
-            <Grid item xs="1">
-              <Program />
-            </Grid>
+      {/* Reports Section Reports Section Reports Section Reports Section Reports Section Reports Section */}
+      <ReportList />
 
-            <Grid item xs="1">
-              <Program />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Box>
-          <Button
-            sx={{
-              widht: "55px",
-              height: "24px",
-              backgroundColor: "#058B94",
-              alignItems: "right",
-              position: "absolute",
-              right: "30px",
-            }}
-          >
-            {" "}
-            View All
-          </Button>
-        </Box>
-      </Stack>
-      <Stack backgroundColor="#F7FEFF" sx={{ p: 4 }}>
-        <Stack direction="row" justifyContent="space-between">
-          <Typography>Reports overview</Typography>
-
-          <Box>10 Reports Submitted</Box>
-        </Stack>
-        <Grid item xs="" sx={{ ml: 2, display: "flex", alignItems: "center" }}>
-          <Grid container columns="4" spacing="22">
-            <Grid item xs="1">
-              <Program />
-            </Grid>
-
-            <Grid item xs="1">
-              <Program />
-            </Grid>
-
-            <Grid item xs="1">
-              <Program />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Box>
-          <Button
-            sx={{
-              widht: "55px",
-              height: "24px",
-              backgroundColor: "#058B94",
-              alignItems: "right",
-              position: "absolute",
-              right: "30px",
-            }}
-          >
-            {" "}
-            View All
-          </Button>
-        </Box>
-      </Stack>
+      <TaskList/>
     </Stack>
   );
 }
