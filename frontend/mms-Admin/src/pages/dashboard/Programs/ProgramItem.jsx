@@ -11,7 +11,6 @@ import {
 import React from "react";
 import Ellipse from "../../../assets/images/Ellipse.png";
 
-
 function LinearProgressWithLabel(props) {
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -27,7 +26,7 @@ function LinearProgressWithLabel(props) {
   );
 }
 
-const ProgramItem = ({title, progress, date}) => {
+const ProgramItem = ({ progress, date }) => {
   return (
     <Stack sx={{ bgcolor: "#E6FDFE" }}>
       <ListItem>
@@ -35,7 +34,6 @@ const ProgramItem = ({title, progress, date}) => {
           <Avatar src={Ellipse} />
         </ListItemAvatar>
         <ListItemText
-          primary={title}
           secondary={<LinearProgressWithLabel value={progress} />}
         ></ListItemText>
       </ListItem>
